@@ -12,8 +12,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 require('./startUp/initBot').init()
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+require('./connections/mongo.connection')()
+
 
 app.use('/', indexRouter);
 app.use('/webhook', webhookRouter);
